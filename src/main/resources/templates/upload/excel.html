@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+<div th:replace="fragments/bodyHeader :: bodyHeader"/>
+<div class="jumbotron">
+    <p class="lead">엑셀 파일만 업로드해주세요.(xls, xlsx)</p> <p>
+    <form th:action="@{/upload/excel}" method="POST" enctype="multipart/form-data">
+        <div>
+            <input type="file" th:name="file">
+            <input th:type="submit" value="제출"/>
+        </div>
+    </form>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</div>
+</body>
+
+</html>

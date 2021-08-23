@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="header" th:fragment="bodyHeader">
+<!--    <ul class="nav nav-pills pull-right">-->
+<!--        <li><a href="/upload">Home</a></li>-->
+<!--    </ul>-->
+    <a href="/"><h3 class="text-muted">WOLF PLANET</h3></a>
+    <!--  로그인한 상태라면 이름과, logout 버튼 출력      -->
+    <div th:if="${#authorization.expr('isAuthenticated()')}">
+        <h2 th:text="${#authentication.name}"></h2>
+        <a href="/logout" th:href="@{/logout}">Logout</a>
+    </div>
+    <!--  로그인한 상태가 아니라면 login 버튼 출력  -->
+    <div th:unless="${#authorization.expr('isAuthenticated()')}">
+        <a href="#login" th:href="@{/login}">Login</a>
+    </div>
+</div>
